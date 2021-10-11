@@ -25,13 +25,14 @@ public class Lec02Controller {
     return "lec02.html";
   }
 
-  @GetMapping("/kekka/{userHand}")
+  @GetMapping("/result/{userHand}")
   public String syouhai(@PathVariable String userHand, ModelMap model) {
     Janken janken = new Janken();
-    String kekka = janken.whichWin(userHand);
-    model.addAttribute("kekka", kekka);
-    model.addAttribute("userHand", janken.tranceHand(userHand));
-    model.addAttribute("CPUHand", "グー");
+    janken.setUserHand(userHand);
+
+    model.addAttribute("userHand", userHand);
+    model.addAttribute("CPUHand", janken.getCPUHand());
+    model.addAttribute("result", janken.getResult());
     return "lec02.html";
   }
 }

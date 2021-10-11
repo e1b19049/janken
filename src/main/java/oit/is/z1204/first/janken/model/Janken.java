@@ -1,30 +1,28 @@
 package oit.is.z1204.first.janken.model;
 
 public class Janken {
+  String userHand;
+  String CPUHand = "gu";
+  String result;
 
-  public String whichWin(String userHand) {
-    if (userHand.equals("gu")) {
-      return "あいこ";
+  public String getResult() {
+    if (this.userHand.equals("gu")) {
+      return this.result = "draw";
     }
-    if (userHand.equals("choki")) {
-      return "まけ";
+    if (this.userHand.equals("choki")) {
+      return this.result = "win";
     }
-    if (userHand.equals("pa")) {
-      return "かち";
+    if (this.userHand.equals("pa")) {
+      return this.result = "lose";
     }
-    return "エラー";
+    return "error";
   }
 
-  public String tranceHand(String hand) {
-    if (hand.equals("gu")) {
-      return "グー";
-    }
-    if (hand.equals("choki")) {
-      return "チョキ";
-    }
-    if (hand.equals("pa")) {
-      return "パー";
-    }
-    return "エラー";
+  public void setUserHand(String userHand) {
+    this.userHand = userHand;
+  }
+
+  public String getCPUHand() {
+    return this.CPUHand;
   }
 }
