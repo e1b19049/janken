@@ -10,13 +10,13 @@
   <div th:if="${name}">
     Hi,[[${name}]]
   </div>
-  <a href="/lec02/kekka/gu">グー</a>
-  <a href="/lec02/kekka/choki">チョキ</a>
-  <a href="/lec02/kekka/pa">パー</a>
-  <div th:if="${kekka}">
-    <p>ユーザのて：[[${userHand}]]</p>
-    <p>CPUのて：[[${CPUHand}]]</p>
-    <p>結果：[[${kekka}]]</p>
+  <a href="/lec02/result/gu">グー</a>
+  <a href="/lec02/result/choki">チョキ</a>
+  <a href="/lec02/result/pa">パー</a>
+  <div th:if="${result}">
+    <p>ユーザの手：[[${userHand}]]</p>
+    <p>CPUの手：[[${CPUHand}]]</p>
+    <p>結果：[[${result}]]</p>
   </div>
 </body>
 
