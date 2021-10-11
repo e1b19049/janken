@@ -10,6 +10,14 @@
   <div th:if="${name}">
     Hi,[[${name}]]
   </div>
+  <a href="/lec02/kekka/gu">グー</a>
+  <a href="/lec02/kekka/choki">チョキ</a>
+  <a href="/lec02/kekka/pa">パー</a>
+  <div th:if="${kekka}">
+    <p>ユーザのて：[[${userHand}]]</p>
+    <p>CPUのて：[[${CPUHand}]]</p>
+    <p>結果：[[${kekka}]]</p>
+  </div>
 </body>
 
 </html>
