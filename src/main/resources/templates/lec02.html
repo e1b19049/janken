@@ -7,10 +7,9 @@
 </head>
 
 <body>
-  <form method="post" action="/lec02">
-    <input type="text" name="name">
-    <button type="submit">参加</button>
-  </form>
+  <div th:if="${name}">
+    Hi,[[${name}]]
+  </div>
 </body>
 
 </html>
