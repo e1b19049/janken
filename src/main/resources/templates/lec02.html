@@ -7,9 +7,9 @@
 </head>
 
 <body>
-  <div th:if="${name}">
-    Hi,[[${name}]]
-  </div>
+  <div><a href="/logout">ログアウト</a></div>
+  <h3>Hi <span sec:authentication="name">!</span>
+  </h3>
   <a href="/lec02/result/gu">グー</a>
   <a href="/lec02/result/choki">チョキ</a>
   <a href="/lec02/result/pa">パー</a>
