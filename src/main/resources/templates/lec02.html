@@ -7,9 +7,9 @@
 </head>
 
 <body>
-  <div th:if="${name}">
-    Hi,[[${name}]]
-  </div>
+  <div><a href="/logout">ログアウト</a></div>
+  <h3><span sec:authentication="name"></span>でログイン中
+  </h3>
   <a href="/lec02/result/gu">グー</a>
   <a href="/lec02/result/choki">チョキ</a>
   <a href="/lec02/result/pa">パー</a>
@@ -17,6 +17,14 @@
     <p>ユーザの手：[[${userHand}]]</p>
     <p>CPUの手：[[${CPUHand}]]</p>
     <p>結果：[[${result}]]</p>
+  </div>
+  <br>
+  <div th:if="${room}">
+    <p>ログイン中のユーザ</p>
+    <ul>
+      <li th:each="user : ${room.users}">[[${user}]]</li>
+    </ul>
+    <p>現在 [[${num}]] 人がログイン中です</p>
   </div>
 </body>
 
