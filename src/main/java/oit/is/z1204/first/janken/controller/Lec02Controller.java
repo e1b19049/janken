@@ -24,6 +24,7 @@ public class Lec02Controller {
     String name = prin.getName();
     this.entry.addUser(name);
     model.addAttribute("room", this.entry);
+    model.addAttribute("num", this.entry.getNumOfUsers());
     return "lec02.html";
   }
 
