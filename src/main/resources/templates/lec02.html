@@ -26,6 +26,24 @@
     </ul>
     <p>現在 [[${num}]] 人がログイン中です</p>
   </div>
+  <div th:if="${users}">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+        </tr>
+      </thead>
+      <div th:each="user,stat:${users}">
+        <tbody>
+          <tr>
+            <td>[[${user.id}]]</td>
+            <td>[[${user.name}]]</td>
+          </tr>
+        </tbody>
+      </div>
+    </table>
+  </div>
 </body>
 
 </html>
