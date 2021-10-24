@@ -44,6 +44,30 @@
       </div>
     </table>
   </div>
+  <div th:if="${matches}">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>user1</th>
+          <th>user2</th>
+          <th>user1Hand</th>
+          <th>user2Hand</th>
+        </tr>
+      </thead>
+      <div th:each="match,stat:${matches}">
+        <tbody>
+          <tr>
+            <td>[[${match.id}]]</td>
+            <td>[[${match.user1}]]</td>
+            <td>[[${match.user2}]]</td>
+            <td>[[${match.user1Hand}]]</td>
+            <td>[[${match.user2Hand}]]</td>
+          </tr>
+        </tbody>
+      </div>
+    </table>
+  </div>
 </body>
 
 </html>

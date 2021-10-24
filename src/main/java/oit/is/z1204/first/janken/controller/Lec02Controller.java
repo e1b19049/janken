@@ -14,6 +14,8 @@ import oit.is.z1204.first.janken.model.Janken;
 import oit.is.z1204.first.janken.model.Entry;
 import oit.is.z1204.first.janken.model.User;
 import oit.is.z1204.first.janken.model.UserMapper;
+import oit.is.z1204.first.janken.model.Match;
+import oit.is.z1204.first.janken.model.MatchMapper;
 
 @Controller
 @RequestMapping("/lec02")
@@ -25,6 +27,9 @@ public class Lec02Controller {
   @Autowired
   UserMapper userMapper;
 
+  @Autowired
+  MatchMapper matchMapper;
+
   @GetMapping
   public String lec02(Principal prin, ModelMap model) {
     String name = prin.getName();
@@ -34,6 +39,10 @@ public class Lec02Controller {
 
     ArrayList<User> users = userMapper.selectAllUsers();
     model.addAttribute("users", users);
+
+    ArrayList<Match> matches = matchMapper.selectAllMatches();
+    model.addAttribute("matches", matches);
+
     return "lec02.html";
   }
 
