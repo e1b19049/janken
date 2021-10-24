@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>じゃんけんゲーム</title>
+</head>
+
+<body>
+  <div><a href="/logout">ログアウト</a></div>
+  <h3><span sec:authentication="name"></span>でログイン中</h3>
+  <div th:if="${name}">
+    <span sec:authentication="name"></span> VS [[${name}]]
+  </div>
+  <a href="/lec02/result/gu">グー</a>
+  <a href="/lec02/result/choki">チョキ</a>
+  <a href="/lec02/result/pa">パー</a>
+  <div th:if="${result}">
+    <p>ユーザの手：[[${userHand}]]</p>
+    <p>CPUの手：[[${CPUHand}]]</p>
+    <p>結果：[[${result}]]</p>
+  </div>
+</body>
+
+</html>

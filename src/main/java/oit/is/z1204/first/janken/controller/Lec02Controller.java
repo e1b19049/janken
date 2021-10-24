@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import oit.is.z1204.first.janken.model.Janken;
 import oit.is.z1204.first.janken.model.Entry;
@@ -54,6 +55,12 @@ public class Lec02Controller {
     model.addAttribute("userHand", userHand);
     model.addAttribute("CPUHand", janken.getCPUHand());
     model.addAttribute("result", janken.getResult());
-    return "lec02.html";
+    return "match.html";
+  }
+
+  @GetMapping("/match")
+  public String match(@RequestParam String name, ModelMap model) {
+    model.addAttribute("name", name);
+    return "match.html";
   }
 }
