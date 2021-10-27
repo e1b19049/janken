@@ -18,6 +18,8 @@ import oit.is.z1204.first.janken.model.User;
 import oit.is.z1204.first.janken.model.UserMapper;
 import oit.is.z1204.first.janken.model.Match;
 import oit.is.z1204.first.janken.model.MatchMapper;
+import oit.is.z1204.first.janken.model.MatchInfo;
+import oit.is.z1204.first.janken.model.MatchInfoMapper;
 
 @Controller
 @RequestMapping("/lec02")
@@ -31,6 +33,9 @@ public class Lec02Controller {
 
   @Autowired
   MatchMapper matchMapper;
+
+  @Autowired
+  MatchInfoMapper matchInfoMapper;
 
   @GetMapping
   @Transactional
@@ -62,6 +67,22 @@ public class Lec02Controller {
     model.addAttribute("matches", matches);
 
     return "lec02.html";
+  }
+
+  @GetMapping("/waiting")
+  public String wating(@RequestParam String userHand, @RequestParam String user2Name, Principal prin) {
+    String user1Name = prin.getName();
+    User user1 = userMapper.selectByName(user1Name);
+    User user2 = userMapper.selectByName(user2Name);
+
+    MatchInfo matchinfo = new MatchInfo();
+    matchinfo.setUser1(user1.getId());
+    matchinfo.setUser2(user2.getId());
+    matchinfo.setUser1Hand(userHand);
+    matchinfo.setActive(true);
+    matchInfoMapper.insertMatchInfo(matchinfo);
+
+    return "wait.html";
   }
 
   @GetMapping("/result/{userHand}")

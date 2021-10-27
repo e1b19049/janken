@@ -12,9 +12,9 @@
   <div th:if="${name}">
     <span sec:authentication="name"></span> VS [[${name}]] (CPU)
   </div>
-  <a href="/lec02/result/gu">グー</a>
-  <a href="/lec02/result/choki">チョキ</a>
-  <a href="/lec02/result/pa">パー</a>
+  <a th:href="@{/lec02/waiting?userHand=Gu(user2Name=${name})}">グー</a>
+  <a th:href="@{/lec02/waiting?userHand=Choki(user2Name=${name})}">チョキ</a>
+  <a th:href="@{/lec02/waiting?userHand=Pa(user2Name=${name})}">パー</a>
   <div th:if="${result}">
     <p>ユーザの手：[[${userHand}]]</p>
     <p>CPUの手：[[${CPUHand}]]</p>
