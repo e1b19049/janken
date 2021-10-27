@@ -35,6 +35,10 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
     // pass = honda
     auth.inMemoryAuthentication().withUser("ほんだ")
         .password("$2y$10$KLLuFTbkwJaQ50b2hdDIjeIFqWAxfIyV4gRGgWu7mu/TtL2OwjpJi").roles("USER");
+
+    // pass = igaki
+    auth.inMemoryAuthentication().withUser("いがき")
+        .password("$2y$10$.YQLA8l0lXCsbWQEL8qBe.lKLs3Cvlgb8Q5iJ1caEs3VYGnzPHTEi").roles("USER");
   }
 
   @Override
