@@ -17,6 +17,28 @@
     </ul>
     <p>現在 [[${num}]] 人がログイン中です</p>
   </div>
+  <div th:if="${matchInfos}">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>user1</th>
+          <th>user2</th>
+          <th>isActive</th>
+        </tr>
+      </thead>
+      <div th:each="matchInfo,stat:${matchInfos}">
+        <tbody>
+          <tr>
+            <td>[[${matchInfo.id}]]</td>
+            <td>[[${matchInfo.user1}]]</td>
+            <td>[[${matchInfo.user2}]]</td>
+            <td>[[${matchInfo.isActive}]]</td>
+          </tr>
+        </tbody>
+      </div>
+    </table>
+  </div>
   <div th:if="${users}">
     <table border="1">
       <thead>
