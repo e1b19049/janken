@@ -10,7 +10,7 @@
   <div><a href="/logout">ログアウト</a></div>
   <h3><span sec:authentication="name"></span>でログイン中</h3>
   <div th:if="${name}">
-    <span sec:authentication="name"></span> VS [[${name}]]
+    <span sec:authentication="name"></span> VS [[${name}]] (CPU)
   </div>
   <a href="/lec02/result/gu">グー</a>
   <a href="/lec02/result/choki">チョキ</a>
@@ -20,6 +20,8 @@
     <p>CPUの手：[[${CPUHand}]]</p>
     <p>結果：[[${result}]]</p>
   </div>
+  <br>
+  <a href="/lec02">もどる</a>
 </body>
 
 </html>
