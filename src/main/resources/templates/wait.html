@@ -4,12 +4,29 @@
 <head>
   <meta charset="utf-8">
   <title>じゃんけんゲーム</title>
+  <script>
+    window.onload = function () {
+      var sse = new EventSource('/lec02/kekka');
+      sse.onmessage = function (event) {
+        console.log(event.data);
+        var kekka = JSON.parse(event.data);
+
+        var br = "<br>"
+        var modoru = "<a href=\"/lec02\">もどる</a>"
+        var refresh = "<h2>結果</h2>" + br + "ID:" + kekka.id + " User1:" + kekka.user1 + " User2:" + kekka.user2 + " User1Hand:" + kekka.user1Hand + " User2Hand:" + kekka.user2Hand + br + modoru;
+        var div = document.getElementById("kekka");
+        div.innerHTML = refresh;
+      }
+    }
+  </script>
 </head>
 
 <body>
   <div><a href="/logout">ログアウト</a></div>
   <h3><span sec:authentication="name"></span>でログイン中</h3>
-  <h2>相手の手を待っています...</h2>
+  <div id="kekka">
+    <h2>相手の手を待っています...</h2>
+  </div>
 </body>
 
 </html>
