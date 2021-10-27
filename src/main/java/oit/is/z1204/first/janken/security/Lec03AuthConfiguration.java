@@ -31,6 +31,10 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
     // pass = test
     auth.inMemoryAuthentication().withUser("test")
         .password("$2y$10$lXgNIN6RlIOxF.PJeAIFDOiqP.uWCRK3EfdNQRe9M2qMzFLWywEK6").roles("USER");
+
+    // pass = honda
+    auth.inMemoryAuthentication().withUser("ほんだ")
+        .password("$2y$10$KLLuFTbkwJaQ50b2hdDIjeIFqWAxfIyV4gRGgWu7mu/TtL2OwjpJi").roles("USER");
   }
 
   @Override
@@ -42,5 +46,8 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
 
     // Spring Securityの機能を利用してログアウト．ログアウト時は http://localhost:8080/ に戻る
     http.logout().logoutSuccessUrl("/");
+
+    http.csrf().disable();
+    http.headers().frameOptions().disable();
   }
 }

@@ -10,21 +10,54 @@
   <div><a href="/logout">ログアウト</a></div>
   <h3><span sec:authentication="name"></span>でログイン中
   </h3>
-  <a href="/lec02/result/gu">グー</a>
-  <a href="/lec02/result/choki">チョキ</a>
-  <a href="/lec02/result/pa">パー</a>
-  <div th:if="${result}">
-    <p>ユーザの手：[[${userHand}]]</p>
-    <p>CPUの手：[[${CPUHand}]]</p>
-    <p>結果：[[${result}]]</p>
-  </div>
-  <br>
   <div th:if="${room}">
     <p>ログイン中のユーザ</p>
     <ul>
-      <li th:each="user : ${room.users}">[[${user}]]</li>
+      <li th:each="user : ${room.users}"><a th:href="@{/lec02/match(name=${user})}">[[${user}]]</a></li>
     </ul>
     <p>現在 [[${num}]] 人がログイン中です</p>
+  </div>
+  <div th:if="${users}">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+        </tr>
+      </thead>
+      <div th:each="user,stat:${users}">
+        <tbody>
+          <tr>
+            <td>[[${user.id}]]</td>
+            <td>[[${user.name}]]</td>
+          </tr>
+        </tbody>
+      </div>
+    </table>
+  </div>
+  <div th:if="${matches}">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>user1</th>
+          <th>user2</th>
+          <th>user1Hand</th>
+          <th>user2Hand</th>
+        </tr>
+      </thead>
+      <div th:each="match,stat:${matches}">
+        <tbody>
+          <tr>
+            <td>[[${match.id}]]</td>
+            <td>[[${match.user1}]]</td>
+            <td>[[${match.user2}]]</td>
+            <td>[[${match.user1Hand}]]</td>
+            <td>[[${match.user2Hand}]]</td>
+          </tr>
+        </tbody>
+      </div>
+    </table>
   </div>
 </body>
 

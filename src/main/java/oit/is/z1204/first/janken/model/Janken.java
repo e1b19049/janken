@@ -18,11 +18,23 @@ public class Janken {
     return "error";
   }
 
+  public String getUserHand() {
+    return userHand;
+  }
+
   public void setUserHand(String userHand) {
     this.userHand = userHand;
   }
 
   public String getCPUHand() {
-    return this.CPUHand;
+    return CPUHand;
+  }
+
+  public void setCPUHand(String cPUHand) {
+    CPUHand = cPUHand;
+  }
+
+  public void setResult(String result) {
+    this.result = result;
   }
 }
